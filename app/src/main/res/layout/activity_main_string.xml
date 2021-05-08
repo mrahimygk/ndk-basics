@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,53 +9,65 @@
     android:padding="8dp"
     tools:context=".MainNativeCallActivity">
 
-    <TextView
-        android:id="@+id/textview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#faa"
-        android:padding="16dp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/phonetextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#afa"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#faa"
+            android:padding="16dp" />
 
-    <TextView
-        android:id="@+id/exceptiontextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#aaf"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/phonetextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#afa"
+            android:padding="16dp" />
 
-    <TextView
-        android:id="@+id/catchertextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffa"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/exceptiontextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#aaf"
+            android:padding="16dp" />
 
-    <TextView
-        android:id="@+id/globalBeforeTextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#aff"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/catchertextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffa"
+            android:padding="16dp" />
 
-    <TextView
-        android:id="@+id/globalAfterTextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#aff"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/globalBeforeTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#aff"
+            android:padding="16dp" />
 
-    <TextView
-        android:id="@+id/threadTextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#faf"
-        android:padding="16dp" />
+        <TextView
+            android:id="@+id/globalAfterTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#aff"
+            android:padding="16dp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/lockTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#faf"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/threadTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#faa"
+            android:padding="16dp" />
+    </LinearLayout>
+</ScrollView>

@@ -46,6 +46,10 @@ add_library(native-lock
         SHARED
         src/main/cpp/native-lock.cpp)
 
+add_library(native-thread
+        SHARED
+        src/main/cpp/native-thread.cpp)
+
 target_link_libraries(
         helloworld-c
         android

@@ -15,6 +15,7 @@ public class MainNativeCallActivity extends AppCompatActivity {
         System.loadLibrary("native-throw");
         System.loadLibrary("native-mutable");
         System.loadLibrary("native-lock");
+        System.loadLibrary("native-thread");
     }
 
     public static native String ndkGetHello(Activity mainStringActivity);
@@ -28,6 +29,8 @@ public class MainNativeCallActivity extends AppCompatActivity {
     public static native DataClass ndkMutable(DataClass dataClass);
 
     public static native String ndkLock(Activity mainStringActivity);
+
+    public static native String ndkThread(IntWrapper intWrapper);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class MainNativeCallActivity extends AppCompatActivity {
                     .setText(result);
         } catch (RuntimeException e) {
             ((TextView) findViewById(R.id.catchertextview))
-                    .setText("Exception catch in java: \n"+e.getMessage());
+                    .setText("Exception catch in java: \n" + e.getMessage());
 
         }
 
@@ -57,11 +60,16 @@ public class MainNativeCallActivity extends AppCompatActivity {
                 .setText(dataClass.toString());
 
         ndkMutable(dataClass);
-        
+
         ((TextView) findViewById(R.id.globalAfterTextview))
                 .setText(dataClass.toString());
 
-        ((TextView) findViewById(R.id.threadTextview))
+        ((TextView) findViewById(R.id.lockTextview))
                 .setText(ndkLock(this));
+
+        final IntWrapper intWrapper = new IntWrapper(0);
+        ndkThread(intWrapper);
+        ((TextView) findViewById(R.id.threadTextview))
+                .setText(String.valueOf(intWrapper.getInt()));
     }
 }
