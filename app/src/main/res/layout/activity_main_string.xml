@@ -5,32 +5,50 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
-    android:padding="8dp"
     android:orientation="vertical"
+    android:padding="8dp"
     tools:context=".MainStringActivity">
 
     <TextView
         android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
+        android:background="#faa"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/phonetextview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
+        android:background="#afa"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/exceptiontextview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
+        android:background="#aaf"
+        android:padding="16dp" />
 
     <TextView
         android:id="@+id/catchertextview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
+        android:background="#ffa"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/globalBeforeTextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#aff"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/globalAfterTextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#aff"
+        android:padding="16dp" />
 
 </LinearLayout>

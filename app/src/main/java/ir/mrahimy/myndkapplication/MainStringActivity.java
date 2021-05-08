@@ -13,6 +13,7 @@ public class MainStringActivity extends AppCompatActivity {
         System.loadLibrary("native-callme");
         System.loadLibrary("native-exception");
         System.loadLibrary("native-throw");
+        System.loadLibrary("native-mutable");
     }
 
     public static native String ndkGetHello(Activity mainStringActivity);
@@ -22,6 +23,8 @@ public class MainStringActivity extends AppCompatActivity {
     public static native String ndkException(ExceptionistClass exceptionistClass);
 
     public static native String ndkThrow(ExceptionistClass exceptionistClass);
+
+    public static native DataClass ndkMutable(DataClass dataClass);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,14 @@ public class MainStringActivity extends AppCompatActivity {
 
         }
 
+        final DataClass dataClass = new DataClass("John", "Doe");
 
+        ((TextView) findViewById(R.id.globalBeforeTextview))
+                .setText(dataClass.toString());
+
+        ndkMutable(dataClass);
+        
+        ((TextView) findViewById(R.id.globalAfterTextview))
+                .setText(dataClass.toString());
     }
 }

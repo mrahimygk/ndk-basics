@@ -38,6 +38,10 @@ add_library(native-throw
         SHARED
         src/main/cpp/native-throw.cpp)
 
+add_library(native-mutable
+        SHARED
+        src/main/cpp/native-mutable.cpp)
+
 target_link_libraries(
         helloworld-c
         android
