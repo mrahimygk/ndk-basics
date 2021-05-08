@@ -42,6 +42,10 @@ add_library(native-mutable
         SHARED
         src/main/cpp/native-mutable.cpp)
 
+add_library(native-thread
+        SHARED
+        src/main/cpp/native-thread.cpp)
+
 target_link_libraries(
         helloworld-c
         android
