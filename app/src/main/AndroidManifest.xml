@@ -9,10 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNdkApplication">
-        <activity
-            android:name=".MainJavaActivity"
-            android:label="@string/title_activity_main_java"
-            android:theme="@style/Theme.MyNdkApplication.NoActionBar">
+        <activity android:name=".MainStringActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,14 +17,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainKotlinActivity"
+            android:name=".MainJavaActivity"
             android:label="@string/title_activity_main_java"
             android:theme="@style/Theme.MyNdkApplication.NoActionBar">
-            <!--<intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".MainKotlinActivity"
+            android:label="@string/title_activity_main_java"
+            android:theme="@style/Theme.MyNdkApplication.NoActionBar">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name="android.app.NativeActivity"
