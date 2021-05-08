@@ -34,6 +34,10 @@ add_library(native-exception
     SHARED
     src/main/cpp/native-exception.cpp)
 
+add_library(native-throw
+        SHARED
+        src/main/cpp/native-throw.cpp)
+
 target_link_libraries(
         helloworld-c
         android
