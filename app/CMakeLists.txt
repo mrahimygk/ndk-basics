@@ -22,6 +22,10 @@ add_library(native-gl
     SHARED
     src/main/cpp/native-gl.cpp)
 
+add_library(native-concat
+    SHARED
+    src/main/cpp/native-concat.cpp)
+
 target_link_libraries(
         helloworld-c
         android
