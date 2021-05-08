@@ -12,6 +12,7 @@ public class MainStringActivity extends AppCompatActivity {
         System.loadLibrary("native-concat");
         System.loadLibrary("native-callme");
         System.loadLibrary("native-exception");
+        System.loadLibrary("native-throw");
     }
 
     public static native String ndkGetHello(Activity mainStringActivity);
@@ -19,6 +20,8 @@ public class MainStringActivity extends AppCompatActivity {
     public static native String ndkCallMe(PhoneNumber phoneNumber);
 
     public static native String ndkException(ExceptionistClass exceptionistClass);
+
+    public static native String ndkThrow(ExceptionistClass exceptionistClass);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,17 @@ public class MainStringActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.exceptiontextview)).setText(
                 ndkException(new ExceptionistClass())
         );
+
+        try {
+            String result = ndkThrow(new ExceptionistClass());
+            ((TextView) findViewById(R.id.catchertextview))
+                    .setText(result);
+        } catch (RuntimeException e) {
+            ((TextView) findViewById(R.id.catchertextview))
+                    .setText("Exception catch in java: \n"+e.getMessage());
+
+        }
+
 
     }
 }
