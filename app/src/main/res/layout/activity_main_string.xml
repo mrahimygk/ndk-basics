@@ -51,4 +51,11 @@
         android:background="#aff"
         android:padding="16dp" />
 
+    <TextView
+        android:id="@+id/threadTextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#faf"
+        android:padding="16dp" />
+
 </LinearLayout>
