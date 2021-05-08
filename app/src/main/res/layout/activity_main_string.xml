@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".MainStringActivity">
+    tools:context=".MainNativeCallActivity">
 
     <TextView
         android:id="@+id/textview"

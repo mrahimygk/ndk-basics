@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainStringActivity extends AppCompatActivity {
+public class MainNativeCallActivity extends AppCompatActivity {
 
     static {
         System.loadLibrary("native-concat");

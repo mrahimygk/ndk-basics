@@ -7,8 +7,8 @@
 
 extern "C"
 JNIEXPORT jobject JNICALL
-Java_ir_mrahimy_myndkapplication_MainStringActivity_ndkMutable(JNIEnv *env, jclass clazz,
-                                                             jobject data_class) {
+Java_ir_mrahimy_myndkapplication_MainNativeCallActivity_ndkMutable(JNIEnv *env, jclass clazz,
+                                                                   jobject data_class) {
 
     jclass dataClass = env->GetObjectClass(data_class);
     jmethodID setFname = env->GetMethodID(

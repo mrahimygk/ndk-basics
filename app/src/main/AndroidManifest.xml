@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNdkApplication">
-        <activity android:name=".MainStringActivity">
+        <activity android:name=".MainNativeCallActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

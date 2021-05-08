@@ -7,8 +7,8 @@
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_ir_mrahimy_myndkapplication_MainStringActivity_ndkGetHello(JNIEnv *env, jclass clazz,
-                                                                jobject activity) {
+Java_ir_mrahimy_myndkapplication_MainNativeCallActivity_ndkGetHello(JNIEnv *env, jclass clazz,
+                                                                    jobject activity) {
 
     const char *str1 = "THIS IS JNI SPEAKING";
     const char *str2 = "You are calling me from an activity named ";

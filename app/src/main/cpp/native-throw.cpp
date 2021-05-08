@@ -7,8 +7,8 @@
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_ir_mrahimy_myndkapplication_MainStringActivity_ndkThrow(JNIEnv *env, jclass clazz,
-                                                             jobject exceptionist_class) {
+Java_ir_mrahimy_myndkapplication_MainNativeCallActivity_ndkThrow(JNIEnv *env, jclass clazz,
+                                                                 jobject exceptionist_class) {
 
     jclass exceptionistClass = env->GetObjectClass(exceptionist_class);
     jmethodID doTimeTravel = env->GetMethodID(

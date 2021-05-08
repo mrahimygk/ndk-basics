@@ -7,8 +7,8 @@
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_ir_mrahimy_myndkapplication_MainStringActivity_ndkCallMe(JNIEnv *env, jclass clazz,
-                                                              jobject phone_number) {
+Java_ir_mrahimy_myndkapplication_MainNativeCallActivity_ndkCallMe(JNIEnv *env, jclass clazz,
+                                                                  jobject phone_number) {
 
     jstring pJstring;
     jclass phoneNumberClass = env->GetObjectClass(phone_number);
