@@ -20,4 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="32dp" />
 
+    <TextView
+        android:id="@+id/exceptiontextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp" />
+
 </LinearLayout>
