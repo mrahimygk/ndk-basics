@@ -14,7 +14,7 @@ public class MainNativeCallActivity extends AppCompatActivity {
         System.loadLibrary("native-exception");
         System.loadLibrary("native-throw");
         System.loadLibrary("native-mutable");
-        System.loadLibrary("native-thread");
+        System.loadLibrary("native-lock");
     }
 
     public static native String ndkGetHello(Activity mainStringActivity);
@@ -27,7 +27,7 @@ public class MainNativeCallActivity extends AppCompatActivity {
 
     public static native DataClass ndkMutable(DataClass dataClass);
 
-    public static native String ndkThread(Activity mainStringActivity);
+    public static native String ndkLock(Activity mainStringActivity);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,6 @@ public class MainNativeCallActivity extends AppCompatActivity {
                 .setText(dataClass.toString());
 
         ((TextView) findViewById(R.id.threadTextview))
-                .setText(ndkThread(this));
+                .setText(ndkLock(this));
     }
 }

@@ -42,9 +42,9 @@ add_library(native-mutable
         SHARED
         src/main/cpp/native-mutable.cpp)
 
-add_library(native-thread
+add_library(native-lock
         SHARED
-        src/main/cpp/native-thread.cpp)
+        src/main/cpp/native-lock.cpp)
 
 target_link_libraries(
         helloworld-c

@@ -7,8 +7,8 @@
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_ir_mrahimy_myndkapplication_MainNativeCallActivity_ndkThread(JNIEnv *env, jclass clazz,
-                                                                  jobject activity) {
+Java_ir_mrahimy_myndkapplication_MainNativeCallActivity_ndkLock(JNIEnv *env, jclass clazz,
+                                                                jobject activity) {
 
     if (JNI_OK != env->MonitorEnter(activity)) {
         return env->NewStringUTF("Error in MonitorEnter");
