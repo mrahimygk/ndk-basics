@@ -26,6 +26,10 @@ add_library(native-concat
     SHARED
     src/main/cpp/native-concat.cpp)
 
+add_library(native-callme
+    SHARED
+    src/main/cpp/native-callme.cpp)
+
 target_link_libraries(
         helloworld-c
         android
