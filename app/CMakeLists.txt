@@ -30,6 +30,10 @@ add_library(native-callme
     SHARED
     src/main/cpp/native-callme.cpp)
 
+add_library(native-exception
+    SHARED
+    src/main/cpp/native-exception.cpp)
+
 target_link_libraries(
         helloworld-c
         android
