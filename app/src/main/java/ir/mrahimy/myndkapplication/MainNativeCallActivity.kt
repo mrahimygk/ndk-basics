@@ -15,6 +15,7 @@ class MainNativeCallActivity : AppCompatActivity() {
     private external fun ndkMutable(dataClass: DataClass?): DataClass?
     private external fun ndkLock(mainStringActivity: Activity?): String?
     private external fun ndkThread(intWrapper: IntWrapper?): String?
+    private external fun ndkAbi(): String?
 
     companion object {
 
@@ -26,6 +27,7 @@ class MainNativeCallActivity : AppCompatActivity() {
             System.loadLibrary("native-mutable")
             System.loadLibrary("native-lock")
             System.loadLibrary("native-thread")
+            System.loadLibrary("native-abi")
         }
     }
 
@@ -54,5 +56,7 @@ class MainNativeCallActivity : AppCompatActivity() {
         val intWrapper = IntWrapper(0)
         ndkThread(intWrapper)
         (findViewById<View>(R.id.threadTextview) as TextView).text = intWrapper.int.toString()
+
+        (findViewById<View>(R.id.abiTextview) as TextView).text = ndkAbi()
     }
 }

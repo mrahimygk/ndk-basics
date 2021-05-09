@@ -50,6 +50,10 @@ add_library(native-thread
         SHARED
         src/main/cpp/native-thread.cpp)
 
+add_library(native-abi
+        SHARED
+        src/main/cpp/native-abi.cpp)
+
 target_link_libraries(
         helloworld-c
         android

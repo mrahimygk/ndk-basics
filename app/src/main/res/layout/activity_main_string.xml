@@ -69,5 +69,12 @@
             android:layout_height="wrap_content"
             android:background="#faa"
             android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/abiTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#afa"
+            android:padding="16dp" />
     </LinearLayout>
 </ScrollView>
