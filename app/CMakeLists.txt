@@ -14,6 +14,8 @@ find_library(
 )
 
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Wno-unused-function")
+
 add_library(helloworld-c
     SHARED
     src/main/cpp/helloworld-c.cpp)
@@ -54,6 +56,10 @@ add_library(native-abi
         SHARED
         src/main/cpp/native-abi.cpp)
 
+add_library(native-plasma
+        SHARED
+        src/main/cpp/plasma.cpp)
+
 target_link_libraries(
         helloworld-c
         android
@@ -63,3 +69,8 @@ target_link_libraries(
         GLESv3
 )
 
+target_link_libraries(native-plasma
+        android
+        jnigraphics
+        log
+        m)

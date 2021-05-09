@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">My Ndk Application</string>
+    <string name="plasma_label">Plasma</string>
     <string name="title_activity_main_java">MainJavaActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
