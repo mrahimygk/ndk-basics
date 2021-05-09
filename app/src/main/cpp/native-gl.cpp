@@ -6,7 +6,7 @@
 #include <malloc.h>
 #include <math.h>
 
-extern "C" JNIEXPORT void JNICALL Java_ir_mrahimy_myndkapplication_MainJavaActivity_ndkGl(
+extern "C" JNIEXPORT void JNICALL Java_ir_mrahimy_myndkapplication_MainGlActivity_ndkGl(
         JNIEnv *env, jclass clazz, jintArray data, jint width, jint height) {
     int i, index, pp, rr, gg, bb;
     int* tem;
@@ -70,6 +70,5 @@ extern "C" JNIEXPORT void JNICALL Java_ir_mrahimy_myndkapplication_MainJavaActiv
 
     free(tem);
 
-    // Update output array
     env->SetIntArrayRegion(data, 0, width * height, buffer);
 }

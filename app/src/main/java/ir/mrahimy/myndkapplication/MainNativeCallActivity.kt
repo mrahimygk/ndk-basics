@@ -1,75 +1,58 @@
-package ir.mrahimy.myndkapplication;
+package ir.mrahimy.myndkapplication
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
+import android.app.Activity
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.appcompat.app.AppCompatActivity;
+class MainNativeCallActivity : AppCompatActivity() {
 
-public class MainNativeCallActivity extends AppCompatActivity {
+    private external fun ndkGetHello(mainStringActivity: Activity?): String?
+    private external fun ndkCallMe(phoneNumber: PhoneNumber?): String?
+    private external fun ndkException(exceptionistClass: ExceptionistClass?): String?
+    private external fun ndkThrow(exceptionistClass: ExceptionistClass?): String
+    private external fun ndkMutable(dataClass: DataClass?): DataClass?
+    private external fun ndkLock(mainStringActivity: Activity?): String?
+    private external fun ndkThread(intWrapper: IntWrapper?): String?
 
-    static {
-        System.loadLibrary("native-concat");
-        System.loadLibrary("native-callme");
-        System.loadLibrary("native-exception");
-        System.loadLibrary("native-throw");
-        System.loadLibrary("native-mutable");
-        System.loadLibrary("native-lock");
-        System.loadLibrary("native-thread");
+    companion object {
+
+        init {
+            System.loadLibrary("native-concat")
+            System.loadLibrary("native-callme")
+            System.loadLibrary("native-exception")
+            System.loadLibrary("native-throw")
+            System.loadLibrary("native-mutable")
+            System.loadLibrary("native-lock")
+            System.loadLibrary("native-thread")
+        }
     }
 
-    public static native String ndkGetHello(Activity mainStringActivity);
-
-    public static native String ndkCallMe(PhoneNumber phoneNumber);
-
-    public static native String ndkException(ExceptionistClass exceptionistClass);
-
-    public static native String ndkThrow(ExceptionistClass exceptionistClass);
-
-    public static native DataClass ndkMutable(DataClass dataClass);
-
-    public static native String ndkLock(Activity mainStringActivity);
-
-    public static native String ndkThread(IntWrapper intWrapper);
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_string);
-
-        ((TextView) findViewById(R.id.textview)).setText(ndkGetHello(this));
-        ((TextView) findViewById(R.id.phonetextview)).setText(ndkCallMe(new PhoneNumber("555-666-777")));
-
-        ((TextView) findViewById(R.id.exceptiontextview)).setText(
-                ndkException(new ExceptionistClass())
-        );
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main_string)
+        (findViewById<View>(R.id.textview) as TextView).text = ndkGetHello(this)
+        (findViewById<View>(R.id.phonetextview) as TextView).text =
+            ndkCallMe(PhoneNumber("555-666-777"))
+        (findViewById<View>(R.id.exceptiontextview) as TextView).text =
+            ndkException(ExceptionistClass())
         try {
-            String result = ndkThrow(new ExceptionistClass());
-            ((TextView) findViewById(R.id.catchertextview))
-                    .setText(result);
-        } catch (RuntimeException e) {
-            ((TextView) findViewById(R.id.catchertextview))
-                    .setText("Exception catch in java: \n" + e.getMessage());
-
+            val result = ndkThrow(ExceptionistClass())
+            (findViewById<View>(R.id.catchertextview) as TextView).text = result
+        } catch (e: RuntimeException) {
+            (findViewById<View>(R.id.catchertextview) as TextView).text = """
+                Exception caught in java: 
+                ${e.message}
+                """.trimIndent()
         }
-
-        final DataClass dataClass = new DataClass("John", "Doe");
-
-        ((TextView) findViewById(R.id.globalBeforeTextview))
-                .setText(dataClass.toString());
-
-        ndkMutable(dataClass);
-
-        ((TextView) findViewById(R.id.globalAfterTextview))
-                .setText(dataClass.toString());
-
-        ((TextView) findViewById(R.id.lockTextview))
-                .setText(ndkLock(this));
-
-        final IntWrapper intWrapper = new IntWrapper(0);
-        ndkThread(intWrapper);
-        ((TextView) findViewById(R.id.threadTextview))
-                .setText(String.valueOf(intWrapper.getInt()));
+        val dataClass = DataClass("John", "Doe")
+        (findViewById<View>(R.id.globalBeforeTextview) as TextView).text = dataClass.toString()
+        ndkMutable(dataClass)
+        (findViewById<View>(R.id.globalAfterTextview) as TextView).text = dataClass.toString()
+        (findViewById<View>(R.id.lockTextview) as TextView).text = ndkLock(this)
+        val intWrapper = IntWrapper(0)
+        ndkThread(intWrapper)
+        (findViewById<View>(R.id.threadTextview) as TextView).text = intWrapper.int.toString()
     }
 }

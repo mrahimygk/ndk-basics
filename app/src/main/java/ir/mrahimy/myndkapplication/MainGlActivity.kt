@@ -1,45 +1,48 @@
-package ir.mrahimy.myndkapplication;
+package ir.mrahimy.myndkapplication
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.widget.ImageView;
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+class MainGlActivity : AppCompatActivity() {
 
-public class MainJavaActivity extends AppCompatActivity {
+    private external fun ndkGl(data: IntArray?, width: Int, height: Int)
 
-    static {
-        System.loadLibrary("native-gl");
+    companion object {
+
+        init {
+            System.loadLibrary("native-gl")
+        }
     }
 
-    public static native void ndkGl(int[] data, int width, int height);
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_java);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        Bitmap leafBitmap = BitmapFactory.decodeResource(getResources(),
-                R.drawable.woocommerce);
-
-        ((ImageView)findViewById(R.id.placeholder_before)).setImageBitmap(leafBitmap);
-
-        int[] pixels = new int[leafBitmap.getWidth() * leafBitmap.getHeight()];
-        leafBitmap.getPixels(pixels, 0, leafBitmap.getWidth(), 0, 0, leafBitmap.getWidth(),
-                leafBitmap.getHeight());
-
-        ndkGl(pixels, leafBitmap.getWidth(), leafBitmap.getHeight());
-
-        Bitmap leafGled =  Bitmap.createBitmap(leafBitmap.getWidth(), leafBitmap.getHeight(),
-                Bitmap.Config.ARGB_8888);
-
-        leafGled.setPixels(pixels, 0, leafBitmap.getWidth(), 0, 0, leafBitmap.getWidth(),
-                leafBitmap.getHeight());
-
-        ((ImageView)findViewById(R.id.placeholder_after)).setImageBitmap(leafGled);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main_java)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        val leafBitmap = BitmapFactory.decodeResource(
+            resources,
+            R.drawable.woocommerce
+        )
+        (findViewById<View>(R.id.placeholder_before) as ImageView).setImageBitmap(leafBitmap)
+        val pixels = IntArray(leafBitmap.width * leafBitmap.height)
+        leafBitmap.getPixels(
+            pixels, 0, leafBitmap.width, 0, 0, leafBitmap.width,
+            leafBitmap.height
+        )
+        ndkGl(pixels, leafBitmap.width, leafBitmap.height)
+        val leafGled = Bitmap.createBitmap(
+            leafBitmap.width, leafBitmap.height,
+            Bitmap.Config.ARGB_8888
+        )
+        leafGled.setPixels(
+            pixels, 0, leafBitmap.width, 0, 0, leafBitmap.width,
+            leafBitmap.height
+        )
+        (findViewById<View>(R.id.placeholder_after) as ImageView).setImageBitmap(leafGled)
     }
 }

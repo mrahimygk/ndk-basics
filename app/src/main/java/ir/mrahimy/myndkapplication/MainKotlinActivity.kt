@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainKotlinActivity : AppCompatActivity() {
 
-    init {
-        System.loadLibrary("hello-log")
+    companion object {
+        init {
+            System.loadLibrary("hello-log")
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,9 +18,5 @@ class MainKotlinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_kotlin)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 }

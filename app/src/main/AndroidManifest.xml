@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainJavaActivity"
+            android:name=".MainGlActivity"
             android:label="@string/title_activity_main_java"
             android:theme="@style/Theme.MyNdkApplication.NoActionBar">
            <!-- <intent-filter>
